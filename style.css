@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 241, 230);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 0; 
+    height: fit-content; 
+    width: fit-content;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 241, 230, 0.8);
+    border-radius: 20px;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+  
+.title h1 {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 45px;
+    color: rgba(47, 46, 65)
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.todo-list > div {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* Hide the default checkbox */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    -o-appearance: none; /* For Opera */
+}
+
+input[type="checkbox"]:checked + .checkbox-label .checkbox-icon {
+    opacity: 1;
+}
+
+.flower-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+  
+.flower-icon span {
+    margin-right: 30px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.flower-icon:before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background-image: url('./assets/flower-icon.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+}
+  
+input[type="checkbox"]:checked + .flower-icon:before {
+    animation: bloom 1s ease-in-out forwards;
+}
+input[type="checkbox"]:checked + .flower-icon span {
+    text-decoration: line-through;
+}
+
+  
+@keyframes bloom {
+    0% {
+        opacity: 0;
+        transform: scale(0.2) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
